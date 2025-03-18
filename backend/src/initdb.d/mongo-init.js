@@ -1,9 +1,9 @@
-db = db.getSiblingDB('todo_app')
+db = db.getSiblingDB(process.env.TODO_DB_NAME)
 
 db.createUser({
   user: process.env.TODO_DB_USER,
   pwd: process.env.TODO_DB_PASSWORD,
-  roles: [{ role: 'readWrite', db: process.env.TODO_DB_NAME }],
+  roles: [{ role: 'readWrite', db: process.env.TODO_DB_NAME}],
 })
 
 db.createCollection('todos');
