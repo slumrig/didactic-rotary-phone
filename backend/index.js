@@ -11,6 +11,6 @@ const db = require('./db')
 app.use('/api', TodoRoutes)
 
 // App listening on configured port
-app.listen(process.env.PORT, () => {
-    console.log(`TODO app listening on port ${process.env.PORT}`)
+app.listen(process.env.TODO_APP_PORT, () => {
+    console.log(`TODO app listening on port ${process.env.TODO_APP_PORT}`)
 })
