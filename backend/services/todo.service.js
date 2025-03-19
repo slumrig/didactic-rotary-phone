@@ -1,4 +1,3 @@
-const db = require('../db')
 const Todo = require('../models/todo.model')
 
 module.exports.getAllTodos = async () => {

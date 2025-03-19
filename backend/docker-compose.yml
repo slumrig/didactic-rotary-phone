@@ -1,17 +1,23 @@
 services:
   mongo:
     image: mongo:latest
-    container_name: mongo
+    container_name: ${TODO_DB_HOST}
     ports:
-      - 27017:27017
-
+      - ${TODO_DB_PORT}:${TODO_DB_PORT}
     environment:
-      MONGO_INITDB_ROOT_USERNAME: root
-      MONGO_INITDB_ROOT_PASSWORD: password
-      MONGO_INITDB_DATABASE: root-db
+      # MONGO_INITDB_ROOT_USERNAME: root
+      # MONGO_INITDB_ROOT_PASSWORD: password
+      # MONGO_INITDB_DATABASE: root-db
       TODO_DB_USER: ${TODO_DB_USER}
       TODO_DB_PASSWORD: ${TODO_DB_PASSWORD}
-      TODO_DB_NAME: ${TODO_DB_NAME}
-    
+      TODO_DB_NAME: ${TODO_DB_NAME}  
     volumes:
       - ./initdb.d/mongo-init.js:/docker-entrypoint-initdb.d/mongo-init.js:ro
+  app:
+    container_name: todo-app
+    depends_on:
+      - mongo
+    ports:
+      - 3001:3001
+    build: .
+    command: node index.js
