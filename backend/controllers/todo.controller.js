@@ -18,7 +18,7 @@ const insertTodo = async (req, res) => {
 
 const updateTodo = async (req, res) => {
     const {id} = req.params
-    todo = await services.updateTodo(id)
+    todo = await services.updateTodo(id, req.body)
     res.status(200)
     res.send(JSON.stringify(todo))
 }

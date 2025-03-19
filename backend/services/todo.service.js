@@ -16,15 +16,15 @@ module.exports.insertTodo = async (todoDetails) => {
         })
         await todo.save()
         return todo;
-    } catch(error) {
+    } catch (error) {
         console.log(error)
         throw new Error(error)
     }
 }
 
 module.exports.updateTodo = async (id, todoDetails) => {
-    // updates only sets task completeness to true
-    const todo = await Todo.findOneAndUpdate({id: id}, {isComplete: true})
+    const body = JSON.parse(todoDetails)
+    const todo = await Todo.findOneAndUpdate({id: id}, {name: body.name, isComplete: body.isComplete})
     if (!todo) {
         throw new Error("Todo not found")
     }
@@ -35,7 +35,7 @@ module.exports.deleteTodo = async (id) => {
     try {
         const todo = await Todo.findOneAndDelete({id: id})
         return todo
-    } catch(error) {
+    } catch (error) {
         throw new Error(error)
     }
 }

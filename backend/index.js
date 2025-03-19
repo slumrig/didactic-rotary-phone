@@ -6,7 +6,7 @@ app.use(express.text())
 
 const TodoRoutes = require('./routes/todo.route')
 
-const db = require('./db')
+const db = require('./db/db')
 
 app.use('/api', TodoRoutes)
 
