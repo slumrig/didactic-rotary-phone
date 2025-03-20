@@ -19,6 +19,8 @@ module.exports.getAllTodos = async () => {
  */
 module.exports.insertTodo = async (todoDetails) => {
     try {
+        // frontend is sending payload as text instead of JSON so 
+        // parsing it here, would normally use the express JSON middleware
         const body = JSON.parse(todoDetails)
 
         const todo = new Todo({
@@ -27,7 +29,6 @@ module.exports.insertTodo = async (todoDetails) => {
             isComplete: false,
         })
         await todo.save()
-        return todo
     } catch (error) {
         console.log(error)
         throw new Error(error)

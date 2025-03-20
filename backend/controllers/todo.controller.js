@@ -24,9 +24,8 @@ const insertTodo = async (req, res) => {
     try {
         const todo = await services.insertTodo(req.body)
         res.status(200)
-        res.send(JSON.stringify(todo))
     } catch (error) {
-        res.status(422).send({ message: error.message })
+        res.status(422).send({message: error.message})
     }
 }
 
@@ -38,10 +37,13 @@ const insertTodo = async (req, res) => {
  * @returns {void}
  */
 const updateTodo = async (req, res) => {
-    const { id } = req.params
-    const todo = await services.updateTodo(id, req.body)
-    res.status(200)
-    res.send(JSON.stringify(todo))
+    try {
+        const { id } = req.params
+        const todo = await services.updateTodo(id, req.body)
+        res.status(200)
+    } catch (error) {
+        res.status(204).send({message: error.message})
+    }
 }
 
 /**
@@ -55,9 +57,9 @@ const deleteTodo = async (req, res) => {
     try {
         const { id } = req.params
         await services.deleteTodo(id)
-        res.status(204).send()
+        res.status(200).send()
     } catch (error) {
-        console.log(error)
+        res.status(204).send({message: error.message})
     }
 }
 

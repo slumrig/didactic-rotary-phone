@@ -3,7 +3,8 @@ require('dotenv').config()
 // Setup express app
 const express = require('express')
 const app = express()
-// use text  middleware to parse request payloads into a string
+
+// use text middleware to parse request payloads into a string
 app.use(express.text())
 
 const TodoRoutes = require('./routes/todo.route')
