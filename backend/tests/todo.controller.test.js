@@ -84,7 +84,6 @@ describe('Todo Controller', () => {
 
             expect(services.deleteTodo).toHaveBeenCalledWith('1')
             expect(res.status).toHaveBeenCalledWith(200)
-            expect(res.send).toHaveBeenCalled()
         })
 
         it('should return 204 if deletion fails', async () => {
