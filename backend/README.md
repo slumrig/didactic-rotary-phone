@@ -55,6 +55,7 @@ With step 2 the TODO app should now be running, connected to the Dockerized Mong
 ## Running Tests
 ```
 cd backend
+npm install
 npm test
 ```
 This will execute the test suite using Jest.
