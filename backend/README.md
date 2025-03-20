@@ -1,29 +1,58 @@
 # TODO App
 
+A simple TODO application with a Node.js backend and a MongoDB database running in a Dockerized environment.
+
+## Prerequisites
+
+- [Docker](https://docs.docker.com/get-docker/)
+- [Docker Compose](https://docs.docker.com/compose/install/)
+- [Node.js](https://nodejs.org/) (Recommended: Latest LTS)
+- [npm](https://www.npmjs.com/)
+
 ## Configuration
-1. Create a .env or rename example.env file in backend directory and provide values for the following environment variables (for this exercise PORT needs to be 3001)
-```bash
-TODO_DB_USER=
-TODO_DB_PASSWORD=
-TODO_DB_NAME=
-PORT=
-```
-## Docker/MongoDB
-To install docker compose: https://docs.docker.com/compose/install/linux/
 
-```bash
-cd backend
+1. Navigate to the `backend` directory:
+   ```bash
+   cd backend
 
-#run 
-docker compose up
-```
+2. Create a .env file (or rename example.env) in the backend directory and provide values for the following environment variables:
+    ```bash
+    TODO_DB_USER=
+    TODO_DB_PASSWORD=
+    TODO_DB_NAME=todo_app
+    TODO_DB_HOST=todo_db
+    TODO_DB_PORT=27017
+    TODO_APP_PORT=3001
+    
+- TODO_APP_PORT must be set to 3001 for this exercise.
+- TODO_DB_PORT should be 27017 (default MongoDB port).
+- Other values should be set based on your Dockerized environment.
 
-## Run Express App
-```bash
-cd backend
+## Running the App and MongoDB with Docker
 
-# build project
-npm install
+Make sure you have Docker and Docker Compose installed.
 
-#run project
-node index.js
+1. Navigate to the backend directory:
+    ```
+    cd backend
+
+2. Run containers:
+    ```
+    docker compose up --build --detach
+    
+This starts the TODO app and MongoDB in detached mode (running in the background).
+
+3. Stop containers without removing them:
+    ```
+    docker compose stop
+
+4. Stop and remove containters:
+    ```
+    docker compose down
+
+With step 2 the TODO app should now be running, connected to the Dockerized MongoDB database, and listening on port 3001.
+
+## Running Tests
+    ```
+    npm test
+This will execute the test suite using Jest.

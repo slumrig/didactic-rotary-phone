@@ -6,7 +6,7 @@ db.createUser({
   roles: [{ role: 'readWrite', db: process.env.TODO_DB_NAME}],
 })
 
-db.createCollection('todos');
+db.createCollection('todos')
 
 db.todos.insert([
   {
