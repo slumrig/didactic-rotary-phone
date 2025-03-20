@@ -57,7 +57,7 @@ const deleteTodo = async (req, res) => {
     try {
         const { id } = req.params
         await services.deleteTodo(id)
-        res.status(200).send()
+        res.status(200)
     } catch (error) {
         res.status(204).send({message: error.message})
     }

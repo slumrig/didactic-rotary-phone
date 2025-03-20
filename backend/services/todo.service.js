@@ -65,7 +65,6 @@ module.exports.updateTodo = async (id, todoDetails) => {
 module.exports.deleteTodo = async (id) => {
     try {
         const todo = await Todo.findOneAndDelete({ id: id })
-        return todo
     } catch (error) {
         throw new Error(error)
     }
