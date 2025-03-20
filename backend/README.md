@@ -15,7 +15,7 @@ A simple TODO application with a Node.js backend and a MongoDB database running 
    ```bash
    cd backend
 
-2. Create a .env file (or rename example.env) in the backend directory and provide values for the following environment variables:
+2. Create a .env file (or rename .example.env) in the backend directory and provide values for the following environment variables:
     ```bash
     TODO_DB_USER=
     TODO_DB_PASSWORD=
@@ -53,6 +53,8 @@ This starts the TODO app and MongoDB in detached mode (running in the background
 With step 2 the TODO app should now be running, connected to the Dockerized MongoDB database, and listening on port 3001.
 
 ## Running Tests
-    ```
-    npm test
+```
+cd backend
+npm test
+```
 This will execute the test suite using Jest.
