@@ -15,7 +15,7 @@ A simple TODO application with a Node.js backend and a MongoDB database running 
    ```bash
    cd backend
 
-2. Create a .env file (or rename .example.env to .env) in the backend directory and provide values for the following environment variables:
+2. Create a .env file (or rename .env.example to .env) in the backend directory and provide values for the following environment variables:
     ```bash
     TODO_DB_USER=user   
     TODO_DB_PASSWORD=password
