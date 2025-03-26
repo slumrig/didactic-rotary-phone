@@ -15,10 +15,10 @@ A simple TODO application with a Node.js backend and a MongoDB database running 
    ```bash
    cd backend
 
-2. Create a .env file (or rename .example.env) in the backend directory and provide values for the following environment variables:
+2. Create a .env file (or rename .example.env to .env) in the backend directory and provide values for the following environment variables:
     ```bash
-    TODO_DB_USER=
-    TODO_DB_PASSWORD=
+    TODO_DB_USER=user   
+    TODO_DB_PASSWORD=password
     TODO_DB_NAME=todo_app
     TODO_DB_HOST=todo_db
     TODO_DB_PORT=27017
@@ -38,9 +38,9 @@ Make sure you have Docker and Docker Compose installed.
 
 2. Run containers:
     ```
-    docker compose up --build --detach
+    docker compose up --build
     
-This starts the TODO app and MongoDB in detached mode (running in the background).
+This starts the TODO app and MongoDB (you can run in background with --detach if you like).
 
 3. Stop containers without removing them:
     ```
@@ -50,7 +50,9 @@ This starts the TODO app and MongoDB in detached mode (running in the background
     ```
     docker compose down
 
-With step 2 the TODO app should now be running, connected to the Dockerized MongoDB database, and listening on port 3001.
+With step 2 the TODO app should now be running, connected to the Dockerized MongoDB database, and listening on port 3001. You can verify that the app is running properly by navigating to localhost:3001/api and should see a json paylaod. Or you can try:
+    ```
+    curl --location 'http://localhost:3001/api'
 
 ## Running Tests
 ```
