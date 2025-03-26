@@ -6,7 +6,7 @@ services:
       TODO_DB_USER: ${TODO_DB_USER}
       TODO_DB_PASSWORD: ${TODO_DB_PASSWORD}
       TODO_DB_NAME: ${TODO_DB_NAME}
-      WAIT_HOSTS: mongo:${TODO_DB_PORT}
+      
     ports:
       - ${TODO_DB_PORT}:${TODO_DB_PORT}
     volumes:
@@ -16,6 +16,10 @@ services:
     depends_on:
       - mongo
     environment:
+      WAIT_HOSTS: mongo:${TODO_DB_PORT}
+      WAIT_TIMEOUT: "60"
+      WAIT_SLEEP_INTERVAL: "2"
+      WAIT_HOST_CONNECT_TIMEOUT: "30"
       TODO_DB_USER: ${TODO_DB_USER}
       TODO_DB_PASSWORD: ${TODO_DB_PASSWORD}
       TODO_DB_NAME: ${TODO_DB_NAME}  
