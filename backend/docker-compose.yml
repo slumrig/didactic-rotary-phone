@@ -5,7 +5,8 @@ services:
     environment:
       TODO_DB_USER: ${TODO_DB_USER}
       TODO_DB_PASSWORD: ${TODO_DB_PASSWORD}
-      TODO_DB_NAME: ${TODO_DB_NAME}  
+      TODO_DB_NAME: ${TODO_DB_NAME}
+      WAIT_HOSTS: mongo:${TODO_DB_PORT}
     ports:
       - ${TODO_DB_PORT}:${TODO_DB_PORT}
     volumes:
